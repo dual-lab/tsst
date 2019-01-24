@@ -1,0 +1,12 @@
+{
+    "name": "@dual-lab/minimal-ts-async-compiler",
+    "version": "1.0.0",
+    "description": "A minimal ts compiler, that use the experimantal typescript API.",
+    "dependencies": {},
+    "author": "dmike16 <cipmiky@gmail.com>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dual-lab/minimal-ts-async-compiler"
+    }
+}

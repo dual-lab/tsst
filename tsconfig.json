@@ -1,0 +1,24 @@
+{
+    "buildOnSave": false,
+    "compileOnSave": false,
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "esnext",
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "pretty": true,
+        "noEmitOnError": true,
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "inlineSourceMap": false,
+        "inlineSources": true,
+        "lib": [
+            "esnext"
+        ],
+        "types": [
+            "node"
+        ]
+    }
+}
