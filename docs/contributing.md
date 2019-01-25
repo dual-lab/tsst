@@ -28,12 +28,12 @@
 
 When the mileston is completed create a merge request from _testing_ to _master_.
 
-### Create new issues
+## Create new issues
 
 - [Bug](https://github.com/dual-lab/tsst/issues/new?template=Bug.md) - bug fixing request
 - [Feat](https://github.com/dual-lab/tsst/issues/new?template=Feat.md) - proposal request
 - [Test](https://github.com/dual-lab/tsst/issues/new?template=Test.md) - testing feature
 
-### Create pull requests
+## Create pull requests
 
 - [TEST-TO-MASTER](https://github.com/dual-lab/tsst/pull/new/testing?template=Pull_Request.md)
