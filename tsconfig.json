@@ -2,6 +2,7 @@
     "buildOnSave": false,
     "compileOnSave": false,
     "compilerOptions": {
+        "rootDir": ".",
         "module": "commonjs",
         "target": "esnext",
         "moduleResolution": "node",
