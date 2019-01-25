@@ -5,7 +5,7 @@
     "dependencies": {},
     "author": "dmike16 <cipmiky@gmail.com>",
     "license": "MIT",
-    "main": "./bundles/tsst.js",
+    "main": "./es5/tsst.js",
     "types": "./tsst.d.ts",
     "repository": {
         "type": "git",
