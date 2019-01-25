@@ -4,5 +4,5 @@
       "declaration": true,
       "outDir": "../dist"
     },
-    "files": ["index.ts"],
+    "files": ["public_api.ts"],
   }
