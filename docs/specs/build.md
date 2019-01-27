@@ -29,4 +29,24 @@ interface Tasks {
 
 ### On demand registry
 
+The on demand registry override the `get(...)` method of _undertaker-registry_ in a way that when the task in not
+into the cache, it's loaded from the correct location using node resolve algo and then is add to the _gulp_ flow.
+
+The custom registry has a refecence to the location of internal tasks, and a static ref of _gulp_ instance.
+
 ### Entry point
+
+The entry point is the main input of _gulp-cli_, in which are defined the main tasks of the projects:
+
+1. **build** -- Build all the project. Is a _series_ tasks of
+    1. _clean_ -- clean the output folder
+    2. _compile_ -- compile all the sources
+
+2. **test** -- Testing the source files. Is a _series_ tasks of
+    1. _build_ -- see above.
+    2. _run-test_ -- run the test using Jasmine framework
+
+3. **pre-publish** -- Pre publish formatting and testing. Is a _series_ tasks of
+    1. _build_ -- see above
+    2. _lint_ -- lint the source files
+    3. _refactor-for-packing_ -- refact the compiled files name and directory structure.
