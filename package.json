@@ -1,12 +1,18 @@
 {
-    "name": "@dual-lab/minimal-ts-async-compiler",
+    "name": "@dual-lab/tsst",
     "version": "1.0.0",
-    "description": "A minimal ts compiler, that use the experimantal typescript API.",
+    "description": "A minimal ts transplier, that use the experimantal typescript API.",
     "dependencies": {},
     "author": "dmike16 <cipmiky@gmail.com>",
     "license": "MIT",
+    "main": "./es5/tsst.js",
+    "types": "./tsst.d.ts",
     "repository": {
         "type": "git",
-        "url": "https://github.com/dual-lab/minimal-ts-async-compiler"
-    }
+        "url": "https://github.com/dual-lab/tsst"
+    },
+    "bugs": {
+    "url": "https://github.com/dual-lab/tsst/issues"
+    },
+    "homepage": "https://github.com/dual-lab/tsst#README.md"
 }
