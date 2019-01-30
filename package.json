@@ -33,15 +33,21 @@
         "undertaker-registry": "^1.0.1"
     },
     "peerDependencies": {
-        "@types/node": ">= 8.15.0",
+        "@types/node": ">= 10.15.0",
         "typescript": ">= 3.1 <4"
     },
     "scripts": {
-        "info": "gulp"
+        "info": "gulp",
+        "clean": "gulp clean",
+        "build": " gulp build",
+        "lint": "gulp lint"
     },
     "husky": {
         "hooks": {
             "commit-msg": "node ./scripts/validate-commit"
         }
+    },
+    "engines": {
+        "node": ">= 10.12.0"
     }
 }
