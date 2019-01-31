@@ -1,0 +1,9 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+      "rootDir": ".",
+      "declaration": true,
+      "outDir": "./dist"
+    },
+    "files": ["public_api.ts"]
+}
