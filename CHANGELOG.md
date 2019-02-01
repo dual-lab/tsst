@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Add
 
+- Create build + testing configuration
 - Create typescript config json files
 - Create the project structure
 - Create the principal branch (experimental + testing)
