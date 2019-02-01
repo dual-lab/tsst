@@ -11,15 +11,16 @@
         "noUnusedParameters": true,
         "pretty": true,
         "noEmitOnError": true,
-        "noImplicitAny": false,
-        "sourceMap": true,
-        "inlineSourceMap": false,
+        "noImplicitAny": true,
+        "sourceMap": false,
+        "inlineSourceMap": true,
         "inlineSources": true,
         "lib": [
             "esnext"
         ],
         "types": [
-            "node"
+            "node",
+            "jasmine"
         ]
     }
 }

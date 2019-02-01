@@ -9,11 +9,11 @@ I'll use this compiler in my projects.
 
 ## Install
 
-WIP
+See [wiki](https://github.com/dual-lab/tsst/wiki)
 
 ## Usage
 
-WIP
+See [wiki](https://github.com/dual-lab/tsst/wiki)
 
 ## Workflow tracking
 

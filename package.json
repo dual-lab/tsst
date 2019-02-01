@@ -2,7 +2,10 @@
     "name": "@dual-lab/tsst",
     "version": "1.0.0",
     "description": "A minimal ts transplier, that use the experimantal typescript API.",
-    "dependencies": {},
+    "dependencies": {
+        "injection-js": "^2.2.1",
+        "rxjs": "^6.3.3"
+    },
     "author": "dmike16 <cipmiky@gmail.com>",
     "license": "MIT",
     "main": "./es5/tsst.js",
@@ -12,7 +15,42 @@
         "url": "https://github.com/dual-lab/tsst"
     },
     "bugs": {
-    "url": "https://github.com/dual-lab/tsst/issues"
+        "url": "https://github.com/dual-lab/tsst/issues"
     },
-    "homepage": "https://github.com/dual-lab/tsst#README.md"
+    "homepage": "https://github.com/dual-lab/tsst#README.md",
+    "devDependencies": {
+        "@types/jasmine": "^3.3.8",
+        "@types/node": "^10.12.18",
+        "del": "^3.0.0",
+        "eslint": "^5.12.1",
+        "fancy-log": "^1.3.3",
+        "gulp": "^4.0.0",
+        "gulp-rename": "^1.4.0",
+        "husky": "^1.3.1",
+        "jasmine": "^3.3.1",
+        "jasmine-spec-reporter": "^4.2.1",
+        "tslint": "^5.12.1",
+        "typescript": "^3.2.4",
+        "undertaker-registry": "^1.0.1"
+    },
+    "peerDependencies": {
+        "@types/node": ">= 10.15.0",
+        "typescript": ">= 3.1 <4"
+    },
+    "scripts": {
+        "info": "gulp",
+        "clean": "gulp clean",
+        "build": " gulp build",
+        "lint": "gulp lint",
+        "test": "gulp test",
+        "pre-publish": "gulp prePublish"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "node ./scripts/validate-commit"
+        }
+    },
+    "engines": {
+        "node": ">= 10.12.0"
+    }
 }
