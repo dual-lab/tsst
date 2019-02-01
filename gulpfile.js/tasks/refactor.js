@@ -19,7 +19,7 @@ function moveEs5Module(gulp) {
 
 function renameDeclarationFile(gulp) {
     const fn = () => gulp.src(join(env.buildDir, 'public_api.d.ts'), { base: env.buildDir })
-        .pipe(rename({ dirname: env.buildDir, basename: 'tsst', extname: '.d.ts' }))
+        .pipe(rename({ basename: 'tsst', extname: '.d.ts' }))
         .pipe(gulp.dest(env.buildDir));
     fn.displayName = 'renameDeclarationFile';
     return fn;
