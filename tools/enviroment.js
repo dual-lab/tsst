@@ -6,5 +6,7 @@ module.exports = {
     get sourceDir() { return path.join(this.root, 'src'); },
     get tsConfigBuild() { return path.join(this.root, 'tsconfig-build.json'); },
     get tsLintConfig() { return path.join(this.root, 'tslint.json'); },
-    get lintOutput() { return path.join(this.root, 'tslint-out.txt'); }
+    get lintOutput() { return path.join(this.root, 'tslint-out.txt'); },
+    get tsConfigTest() { return path.join(this.root, 'tsconfig-test.json'); },
+    get buildDirTest() { return path.join(this.root, 'dist-test'); }
 };

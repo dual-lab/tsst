@@ -1,0 +1,13 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "rootDir": ".",
+        "declaration": false,
+        "inlineSourceMap": false,
+        "inlineSources": false,
+        "outDir": "./dist-test"
+    },
+    "include": [
+        "src/**/*_specs.ts"
+    ]
+}
