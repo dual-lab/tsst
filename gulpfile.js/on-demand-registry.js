@@ -3,8 +3,16 @@ const assert = require("assert");
 
 let internalTaker = null;
 
-function defFallbackOnDemandTasks(task, message) {
-    return async () => { throw new Error(`Error loading tasks[${task}]: ${message}`) };
+function defFallbackOnDemandTasks(name, tasks) {
+    const refTask = function() {
+        const fn = tasks[name];
+        assert.ok(fn, `Error loading tasks[${name}]`);
+        return fn.apply(null, arguments);
+    };
+
+    refTask.displayName = name;
+
+    return refTask;
 }
 
 class OnDemandRegistry extends DefaultRegistry {
@@ -20,8 +28,11 @@ class OnDemandRegistry extends DefaultRegistry {
     }
 
     get(name) {
-        if (!(name in this._tasks)) this._loading(name);
-        return super.get(name);
+        let fn = null;
+        if (!(name in this._tasks)) {
+            fn = this._loading(name);
+        } 
+        return fn || super.get(name);
     }
 
     _loading(name) {
@@ -29,10 +40,11 @@ class OnDemandRegistry extends DefaultRegistry {
         let taskFn = null;
         try {
             taskFn = require(`${this.tasksLocation}/${name}.js`)(internalTaker);
+            internalTaker._setTask(name, taskFn);
         } catch (err) {
-            taskFn = this.fallbackOnDemandTask(name, err.message);
+            return this.fallbackOnDemandTask(name, this._tasks);
         }
-        internalTaker._setTask(name, taskFn);
+        return null;
     }
 }
 

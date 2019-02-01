@@ -7,4 +7,4 @@ module.exports = () => async () => {
     log.info("Transpiling project with configuration: [", env.tsConfigBuild, "]");
     const cmd = `${resolveModuleCli('typescript', 'tsc')} -p ${env.tsConfigBuild}`;
     await exec(cmd);
-}
+};
