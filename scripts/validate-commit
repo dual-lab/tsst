@@ -1,4 +1,0 @@
-#!/usr/bin/env node
-const log = require("fancy-log");
-
-log.info('FIXME(dmike16): create a commit message parser and validate aganist project rules');
