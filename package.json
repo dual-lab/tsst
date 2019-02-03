@@ -47,7 +47,7 @@
     },
     "husky": {
         "hooks": {
-            "commit-msg": "node ./scripts/validate-commit"
+            "commit-msg": "node ./scripts/validate-commit.js"
         }
     },
     "engines": {
