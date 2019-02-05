@@ -28,8 +28,21 @@ Tasks shared between AOT and JIT api:
     > To call the default module resolution we can use `ts.resolveModuleName`.
 
 ## AOT (Ahead of Time)
+The aot api use typescript low level function to generate the transpiled javascript files:
+
+1. create the _program_ instance with `ts.createProgram([sources], compilerOptions, host)`
+2. emit the transpilation with `program.emit()`
+3. concat all the diagnostics
+    - _pre-emitted diagnostics_ + _emittedResult diagnostics_
+    - output the diagnostics in a formatted message.
+4. check the `emitSkipped` flag, if true return 1 else 0
 
 ## JIT (Just in Time)
+The jit api transpiler the source when the node process require it:
+
+1. transpiler the source with `ts.transpileModule`
+2. check for errors diagnostic, interrupt if there are
+3. compile the transpile code with node js low level api
 
 ## Transpiler Flow
 
@@ -37,4 +50,4 @@ Tasks shared between AOT and JIT api:
 
 All the dependencies in this project are managed using the [injection-js](https://github.com/mgechev/injection-js)
 module, that is based on Angular _ReflectiveInjector_ api.
-All the principal transform function, are injected using specific providers with pusblic access.
+All the principal transform function, are injected using specific providers.
