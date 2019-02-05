@@ -46,6 +46,21 @@ The jit api transpiler the source when the node process require it:
 
 ## Transpiler Flow
 
+The transpiler flow is based on two classes 
+
+1. `StepFlow` - that rapresent the step of a trasformation
+2. `TranspilerFlow` - that is a sequences of steps
+
+Exmaple of AOT flow
+
+<img src="http://yuml.me/diagram/activity/(start)->(T1 - Parse configuration)->(T2 - Create the program)->(T3 - Emit the result)->(T4 - Check diagnostic)->(T5 - 0 | 1)->(end)" >
+
+Example of JIT flow
+
+<img src="http://yuml.me/diagram/activity/(start)->(T1 - Parse configuration)->(T2 - Check diagnostic)->(T3 - 0 | 1)->(end)" >
+
+Every transformation is a [MonoTypeOperatorFunction<TranspilerFlow>](https://rxjs-dev.firebaseapp.com/api/index/interface/MonoTypeOperatorFunction).
+
 ## DI (Dependency Injection)
 
 All the dependencies in this project are managed using the [injection-js](https://github.com/mgechev/injection-js)
