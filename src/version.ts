@@ -16,6 +16,18 @@ Expected Format: x.x.x x:integer`);
         }
     }
 
+    get getMajor() {
+        return this.major;
+    }
+
+    get getMinor() {
+        return this.minor;
+    }
+
+    get getPatch() {
+        return this.patch;
+    }
+
     isBelow(semver: string): boolean {
         const parsedSemver = this.parseSemver(semver);
         return this.major < parsedSemver.major
