@@ -30,16 +30,16 @@ Expected Format: x.x.x x:integer`);
 
     isBelow(semver: string): boolean {
         const parsedSemver = this.parseSemver(semver);
-        return this.major < parsedSemver.major
-            || this.minor < parsedSemver.minor
-            || this.patch < parsedSemver.patch;
+        return this.major < parsedSemver.major ? true
+            : this.minor < parsedSemver.minor ? true
+                : this.patch < parsedSemver.patch ? true : false;
     }
 
     isAbove(semver: string): boolean {
         const parsedSemver = this.parseSemver(semver);
-        return this.patch > parsedSemver.patch
-            && this.minor > parsedSemver.minor
-            && this.major > parsedSemver.major;
+        return this.major > parsedSemver.major ? true
+            : this.minor > parsedSemver.minor ? true
+                : this.patch > parsedSemver.patch ? true : false;
     }
 
     isEqual(semver: string): boolean {
