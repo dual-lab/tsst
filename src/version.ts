@@ -31,15 +31,17 @@ Expected Format: x.x.x x:integer`);
     isBelow(semver: string): boolean {
         const parsedSemver = this.parseSemver(semver);
         return this.major < parsedSemver.major ? true
-            : this.minor < parsedSemver.minor ? true
-                : this.patch < parsedSemver.patch ? true : false;
+            : this.major === parsedSemver.major ? this.minor < parsedSemver.minor ?
+                true : this.minor === parsedSemver.minor ? this.patch < parsedSemver.patch : false
+                : false;
     }
 
     isAbove(semver: string): boolean {
         const parsedSemver = this.parseSemver(semver);
         return this.major > parsedSemver.major ? true
-            : this.minor > parsedSemver.minor ? true
-                : this.patch > parsedSemver.patch ? true : false;
+            : this.major === parsedSemver.major ? this.minor > parsedSemver.minor ?
+                true : this.minor === parsedSemver.minor ? this.patch > parsedSemver.patch : false
+                : false;
     }
 
     isEqual(semver: string): boolean {
