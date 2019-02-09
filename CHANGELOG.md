@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Add
 
+- Add merge type to commit validator hook
+- Create version class implementation
 - Create build + testing configuration
 - Create typescript config json files
 - Create the project structure
