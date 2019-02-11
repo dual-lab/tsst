@@ -6,6 +6,7 @@ export interface Tsst {
     withProviders(providers: Provider[]): Tsst;
     withTsconfig(tsconf: string): Tsst;
     withCompilerOptions(options: CompilerOptions): Tsst;
+    withVersion(semver: string): Tsst;
     buildAot(): Observable<0 | 1>;
     install(): 0 | 1;
     unistall(): 0 | 1;
