@@ -1,4 +1,4 @@
-import { InjectionToken, FactoryProvider, ValueProvider } from "injection-js";
+import { InjectionToken, ValueProvider } from "injection-js";
 import { Version } from "./version";
 
 // tslint:disable-next-line:no-var-requires
@@ -10,3 +10,13 @@ export const VERSION_PROVIDER: ValueProvider = {
     provide: VERSION_TOKEN,
     useValue: new Version(version)
 };
+
+export const EXPECTED_VERSION_TOKEN = new InjectionToken<string>("tsst.expexted.version");
+
+// tslint:disable-next-line:class-name
+export function expectedVersionProvider(semver: string): ValueProvider {
+    return {
+        provide: EXPECTED_VERSION_TOKEN,
+        useValue: semver
+    };
+}

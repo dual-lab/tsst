@@ -1,6 +1,10 @@
 import { Provider } from "injection-js";
-import { Observable } from "rxjs";
+import { Observable, MonoTypeOperatorFunction } from "rxjs";
 import { CompilerOptions } from "typescript";
+import { VERSION_PROVIDER } from "./version.di";
+import { ToolchainEngine } from "./toolchain/toolchain-engine";
+import { Transform } from "stream";
+import { TranspilerFlow } from "./core/transpiler-flow";
 
 export interface Tsst {
     withProviders(providers: Provider[]): Tsst;
@@ -12,7 +16,12 @@ export interface Tsst {
     unistall(): 0 | 1;
 }
 
+export type Transform = MonoTypeOperatorFunction<TranspilerFlow>;
+
 // tslint:disable-next-line:class-name
 export function toolchain(): Tsst {
-    return null;
+    const DEFAULT_PROVIDERS: Provider[] = [
+        VERSION_PROVIDER
+    ];
+    return new ToolchainEngine(DEFAULT_PROVIDERS);
 }
