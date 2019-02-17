@@ -1,5 +1,7 @@
-import { InjectionToken, ValueProvider } from "injection-js";
+import { InjectionToken, ValueProvider, FactoryProvider } from "injection-js";
 import { Version } from "./version";
+import { Step } from "./tsst";
+import { versionStepFactory } from "./version-step";
 
 // tslint:disable-next-line:no-var-requires
 const { version } = require("../package.json");
@@ -20,3 +22,11 @@ export function expectedVersionProvider(semver: string): ValueProvider {
         useValue: semver
     };
 }
+
+export const VERSION_STEP_TOKEN = new InjectionToken<Step>("tsst.step.version");
+
+export const VERSION_STEP_PROVIDER: FactoryProvider = {
+    provide: VERSION_STEP_TOKEN,
+    useFactory: versionStepFactory,
+    deps: [VERSION_TOKEN, EXPECTED_VERSION_TOKEN]
+};

@@ -1,3 +1,3 @@
 export class TranspilerStep<T> {
-    context: T;
+    constructor(public context: T) { }
 }

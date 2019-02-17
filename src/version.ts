@@ -51,6 +51,10 @@ Expected Format: x.x.x x:integer`);
             && this.patch === parsedSemver.patch;
     }
 
+    toString(): string {
+        return `${this.major}.${this.minor}.${this.patch}`;
+    }
+
     private parseSemver(semver: string): { major: number, minor: number; patch: number; } {
         const parts = semver.split(".");
         const major = +parts[0];

@@ -1,9 +1,11 @@
 import { Tsst } from "../tsst";
 import { CompilerOptions } from "typescript";
 import { Provider, Injector, ReflectiveInjector } from "injection-js";
-import { Observable } from "rxjs";
+import { Observable, of } from "rxjs";
 import { tsConfigProvider, tsConfigExtraOptionsProvider } from "./tsconfig.di";
-import { expectedVersionProvider } from "../version.di";
+import { expectedVersionProvider, VERSION_STEP_TOKEN } from "../version.di";
+import { TranspilerFlow } from "../core/transpiler-flow";
+import { map, catchError } from "rxjs/operators";
 
 export class ToolchainEngine implements Tsst {
 
@@ -35,7 +37,17 @@ export class ToolchainEngine implements Tsst {
 
     buildAot(): Observable<0 | 1> {
         const injector = this.createInjectorContext();
-        return Observable.throw("Method not implemented");
+        return of(TranspilerFlow.init())
+            .pipe(
+                injector.get(VERSION_STEP_TOKEN)
+                // Add other steps here
+                , catchError((err) => {
+// tslint:disable-next-line: no-console
+                    console.error(err.message);
+                    return of(TranspilerFlow.init());
+                })
+                , map<TranspilerFlow, 0 | 1>((flow) => flow.getcurrent<any>().context ? 0 : 1)
+            );
     }
 
     install(): 0 | 1 {

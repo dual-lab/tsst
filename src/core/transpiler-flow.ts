@@ -1,6 +1,13 @@
 import { TranspilerStep } from "./transpiler-step";
 
 export class TranspilerFlow {
+    static init(): TranspilerFlow {
+        const flow = new TranspilerFlow();
+        flow.add(new TranspilerStep<never>(null as never));
+
+        return flow;
+    }
+
     private stpes: Array<TranspilerStep<any>>;
     private count: number = 0;
 

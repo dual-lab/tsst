@@ -16,7 +16,7 @@ export interface Tsst {
     unistall(): 0 | 1;
 }
 
-export type Transform = MonoTypeOperatorFunction<TranspilerFlow>;
+export type Step = MonoTypeOperatorFunction<TranspilerFlow>;
 
 // tslint:disable-next-line:class-name
 export function toolchain(): Tsst {
