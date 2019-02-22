@@ -3,8 +3,9 @@ import { Observable, MonoTypeOperatorFunction } from "rxjs";
 import { CompilerOptions } from "typescript";
 import { VERSION_PROVIDER } from "./version.di";
 import { ToolchainEngine } from "./toolchain/toolchain-engine";
-import { Transform } from "stream";
 import { TranspilerFlow } from "./core/transpiler-flow";
+import { DIAGNOSTIC_FORMAT_PROVIDER } from "./core/diagnostic/diagnostic.di";
+import { PARSING_HOST_PROVIDER } from "./core/parsing/parsing.di";
 
 export interface Tsst {
     withProviders(providers: Provider[]): Tsst;
@@ -22,6 +23,8 @@ export type Step = MonoTypeOperatorFunction<TranspilerFlow>;
 export function toolchain(): Tsst {
     const DEFAULT_PROVIDERS: Provider[] = [
         VERSION_PROVIDER
+        , DIAGNOSTIC_FORMAT_PROVIDER
+        , PARSING_HOST_PROVIDER
     ];
     return new ToolchainEngine(DEFAULT_PROVIDERS);
 }
