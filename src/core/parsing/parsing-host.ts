@@ -34,7 +34,7 @@ export class ParsingHost implements ParseConfigFileHost {
     }
 
     trace?(s: string): void {
-        // DO Nothing
+        sys.write(`${s}${sys.newLine}`);
     }
 
 }
