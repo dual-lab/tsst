@@ -9,7 +9,7 @@ export class ParsingHost implements ParseConfigFileHost {
     constructor(private diagnostichost: DiagnosticHost) {
         this.useCaseSensitiveFileNames = sys.useCaseSensitiveFileNames;
         this.onUnRecoverableConfigFileDiagnostic = (diagnostic) => {
-            formatDiagnostic(diagnostic, this.diagnostichost);
+            throw new Error(formatDiagnostic(diagnostic, this.diagnostichost));
         };
     }
 

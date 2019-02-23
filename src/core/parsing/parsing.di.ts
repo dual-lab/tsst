@@ -18,5 +18,5 @@ export const PARSING_STEP_TOKEN = new InjectionToken<Step>("tsst.step.parsing");
 export const PARSING_STEP_PROVIDER: FactoryProvider = {
     provide: PARSING_STEP_TOKEN,
     useFactory: parsingStepFactory,
-    deps: [PARSING_HOST_TOKEN, [new Optional(), TSCONFIG_TOKEN], [new Optional(), TSCONFIG_EXTRA_OPTIONS_TOKEN]]
+    deps: [PARSING_HOST_TOKEN, DIAGNOSTIC_FORMAT_TOKEN, TSCONFIG_TOKEN, [new Optional(), TSCONFIG_EXTRA_OPTIONS_TOKEN]]
 };
