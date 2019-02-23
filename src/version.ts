@@ -59,7 +59,7 @@ Expected Format: x.x.x x:integer`);
         const parts = semver.split(".");
         const major = +parts[0];
         const minor = +parts[1];
-        const patch = parseInt(parts[2]);
+        const patch = parseInt(parts[2], 10);
 
         return { major, minor, patch };
     }
