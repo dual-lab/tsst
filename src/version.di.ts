@@ -13,7 +13,7 @@ export const VERSION_PROVIDER: ValueProvider = {
     useValue: new Version(version)
 };
 
-export const EXPECTED_VERSION_TOKEN = new InjectionToken<string>("tsst.expexted.version");
+export const EXPECTED_VERSION_TOKEN = new InjectionToken<string>("tsst.expected.version");
 
 // tslint:disable-next-line:class-name
 export function expectedVersionProvider(semver: string): ValueProvider {

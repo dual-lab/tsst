@@ -6,6 +6,8 @@ import { tsConfigProvider, tsConfigExtraOptionsProvider } from "./tsconfig.di";
 import { expectedVersionProvider, VERSION_STEP_TOKEN } from "../version.di";
 import { TranspilerFlow } from "../core/transpiler-flow";
 import { map, catchError } from "rxjs/operators";
+import { PARSING_STEP_TOKEN } from "../core/parsing/parsing.di";
+import { AOT_STEP_TOKEN } from "../aot/aot.di";
 
 export class ToolchainEngine implements Tsst {
 
@@ -40,13 +42,14 @@ export class ToolchainEngine implements Tsst {
         return of(TranspilerFlow.init())
             .pipe(
                 injector.get(VERSION_STEP_TOKEN)
-                // Add other steps here
+                , injector.get(PARSING_STEP_TOKEN)
+                , injector.get(AOT_STEP_TOKEN)
                 , catchError((err) => {
-// tslint:disable-next-line: no-console
+                    // tslint:disable-next-line: no-console
                     console.error(err.message);
                     return of(TranspilerFlow.init());
                 })
-                , map<TranspilerFlow, 0 | 1>((flow) => flow.getcurrent<any>().context ? 0 : 1)
+                , map<TranspilerFlow, 0 | 1>((flow) => flow.getcurrent<any>().context !== null ? 0 : 1)
             );
     }
 
