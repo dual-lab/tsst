@@ -5,7 +5,8 @@ import { VERSION_PROVIDER } from "./version.di";
 import { ToolchainEngine } from "./toolchain/toolchain-engine";
 import { TranspilerFlow } from "./core/transpiler-flow";
 import { DIAGNOSTIC_FORMAT_PROVIDER } from "./core/diagnostic/diagnostic.di";
-import { PARSING_HOST_PROVIDER } from "./core/parsing/parsing.di";
+import { PARSING_HOST_PROVIDER, PARSING_STEP_PROVIDER } from "./core/parsing/parsing.di";
+import { AOT_STEP_PROVIDER } from "./aot/aot.di";
 
 export interface Tsst {
     withProviders(providers: Provider[]): Tsst;
@@ -25,6 +26,8 @@ export function toolchain(): Tsst {
         VERSION_PROVIDER
         , DIAGNOSTIC_FORMAT_PROVIDER
         , PARSING_HOST_PROVIDER
+        , PARSING_STEP_PROVIDER,
+        , AOT_STEP_PROVIDER
     ];
     return new ToolchainEngine(DEFAULT_PROVIDERS);
 }
