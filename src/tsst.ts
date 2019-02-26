@@ -7,6 +7,7 @@ import { TranspilerFlow } from "./core/transpiler-flow";
 import { DIAGNOSTIC_FORMAT_PROVIDER } from "./core/diagnostic/diagnostic.di";
 import { PARSING_HOST_PROVIDER, PARSING_STEP_PROVIDER } from "./core/parsing/parsing.di";
 import { AOT_STEP_PROVIDER } from "./aot/aot.di";
+import { JIT_STEP_PROVIDER } from "./jit/jit.di";
 
 export interface Tsst {
     withProviders(providers: Provider[]): Tsst;
@@ -15,7 +16,6 @@ export interface Tsst {
     withVersion(semver: string): Tsst;
     buildAot(): Observable<0 | 1>;
     install(): 0 | 1;
-    unistall(): 0 | 1;
 }
 
 export type Step = MonoTypeOperatorFunction<TranspilerFlow>;
@@ -28,6 +28,7 @@ export function toolchain(): Tsst {
         , PARSING_HOST_PROVIDER
         , PARSING_STEP_PROVIDER,
         , AOT_STEP_PROVIDER
+        , JIT_STEP_PROVIDER
     ];
     return new ToolchainEngine(DEFAULT_PROVIDERS);
 }
