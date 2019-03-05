@@ -26,7 +26,7 @@ export function toolchain(): Tsst {
         VERSION_PROVIDER
         , DIAGNOSTIC_FORMAT_PROVIDER
         , PARSING_HOST_PROVIDER
-        , PARSING_STEP_PROVIDER,
+        , PARSING_STEP_PROVIDER
         , AOT_STEP_PROVIDER
         , JIT_STEP_PROVIDER
     ];
