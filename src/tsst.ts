@@ -1,7 +1,7 @@
 import { Provider } from "injection-js";
 import { Observable, MonoTypeOperatorFunction } from "rxjs";
 import { CompilerOptions } from "typescript";
-import { VERSION_PROVIDER } from "./version.di";
+import { VERSION_PROVIDER, VERSION_STEP_PROVIDER } from "./version.di";
 import { ToolchainEngine } from "./toolchain/toolchain-engine";
 import { TranspilerFlow } from "./core/transpiler-flow";
 import { DIAGNOSTIC_FORMAT_PROVIDER } from "./core/diagnostic/diagnostic.di";
@@ -24,6 +24,7 @@ export type Step = MonoTypeOperatorFunction<TranspilerFlow>;
 export function toolchain(): Tsst {
     const DEFAULT_PROVIDERS: Provider[] = [
         VERSION_PROVIDER
+        , VERSION_STEP_PROVIDER
         , DIAGNOSTIC_FORMAT_PROVIDER
         , PARSING_HOST_PROVIDER
         , PARSING_STEP_PROVIDER
