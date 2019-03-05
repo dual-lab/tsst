@@ -2,13 +2,7 @@ const { join } = require("path");
 const del = require("del");
 const rename = require("gulp-rename");
 const env = require("../../tools/enviroment");
-
-function addPackageJsonFile(gulp) {
-    const fn = () => gulp.src(join(env.root, 'package.json'))
-        .pipe(gulp.dest(env.buildDir));
-    fn.displayName = 'addPackageJsonFile';
-    return fn;
-}
+const { addPackageJsonFile } = require("../move-packagejson");
 
 function moveEs5Module(gulp) {
     const fn = () => gulp.src(join(env.buildDir, 'src', '*.js'), { sourcemaps: true })
@@ -34,5 +28,5 @@ function cleanUnusefulFile() {
 module.exports = (gulp) => gulp.series(gulp.parallel(
     moveEs5Module(gulp)
     , renameDeclarationFile(gulp)
-    , addPackageJsonFile(gulp)
+    , addPackageJsonFile(gulp, env.buildDir)
 ), cleanUnusefulFile());
