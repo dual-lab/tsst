@@ -1,4 +1,4 @@
-import { InjectionToken, ValueProvider, FactoryProvider } from "injection-js";
+import { InjectionToken, ValueProvider, FactoryProvider, Optional } from "injection-js";
 import { Version } from "./version";
 import { Step } from "./tsst";
 import { versionStepFactory } from "./version-step";
@@ -28,5 +28,5 @@ export const VERSION_STEP_TOKEN = new InjectionToken<Step>("tsst.step.version");
 export const VERSION_STEP_PROVIDER: FactoryProvider = {
     provide: VERSION_STEP_TOKEN,
     useFactory: versionStepFactory,
-    deps: [VERSION_TOKEN, EXPECTED_VERSION_TOKEN]
+    deps: [VERSION_TOKEN, [new Optional(), EXPECTED_VERSION_TOKEN]]
 };
