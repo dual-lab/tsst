@@ -62,3 +62,7 @@ typings/
 
 dist/
 dist-test/
+tslint-out.txt
+
+# vscode settings
+.vscode/

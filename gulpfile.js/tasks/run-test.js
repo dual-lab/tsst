@@ -4,6 +4,7 @@ const JasmineSpecRepo = require("jasmine-spec-reporter").SpecReporter;
 const del = require("del");
 const { resolveModuleCli } = require("../../tools/resolveModuleCli");
 const { executeCmd } = require("../cmd-executor");
+const { addPackageJsonFile } = require("../move-packagejson");
 const env = require("../../tools/enviroment");
 
 function cleanTest() {
@@ -33,4 +34,4 @@ function executeJasmine() {
 }
 executeJasmine.displayName = "executeJasmine";
 
-module.exports = (gulp) => gulp.series(cleanTest, transpileForTest, executeJasmine);
+module.exports = (gulp) => gulp.series(cleanTest, transpileForTest, addPackageJsonFile(gulp, env.buildDirTest), executeJasmine);

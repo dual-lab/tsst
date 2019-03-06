@@ -50,7 +50,11 @@ class CommitHeaderRules {
             },
             revert: {
                 desc: 'Revert a previus commit',
-                hadScope: false
+                hasScope: false
+            },
+            merge: {
+                desc: 'A merge commit',
+                hasScope: false
             }
 
         };
