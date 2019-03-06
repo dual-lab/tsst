@@ -1,0 +1,20 @@
+version: 2.1
+description: Node js building testing and publishing module
+
+var_1: &docker_image circlecli/node:11.10.1
+var_2: &cache_key cc-v1-node-11101-{{ checksum "yarn.lock" }}
+
+executors:
+  node-yarn:
+    docker:
+      - image: *docker_image
+    working_directory: ~/tsst
+
+commands:
+  restore-node-dep:
+    description: "Restore node dependencies from cache",
+    steps:
+      - restore_cache: 
+          key: *cache_key
+  
+  
