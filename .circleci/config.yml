@@ -17,4 +17,73 @@ commands:
       - restore_cache: 
           key: *cache_key
   
+  attach-workspace:
+    description: "Attach current workspace to subsequence workflows"
+    steps:
+      - attach_workspace:
+          at: ~/
+
+  yarn-install:
+    description: "Install dependencies from yarn.lock"
+    steps:
+      - run: 
+          name: "Yarn install"
+          command: yarn install --frozen-lockfile --non-interactive
+  
+jobs:
+  setup:
+    executor: node-yarn
+    steps:
+      - checkout
+      - restore-node-dep
+      - yarn-install
+      - save_cache
+          name: Save Yarn Package Cache
+            key: *cache_key
+            paths:
+              - ~/.cache/yarn
+
+  lint:
+    executor: node-yarn
+    steps:
+      - attach-workspace
+      - run: yarn run lint
+
+  test:
+    executor: node-yarn
+    steps:
+      - attach-workspace
+      - run: yarn run test
+
+  pre-publish:
+    executor: node-yarn
+    steps:
+      - attach-workspace
+      - run: yarn run pre-publish
+  
+  publish-module:
+    executor: node-yarn
+    steps:
+      - attach-workspace
+      - run: echo "TODO:(dmike16) create account and get encrypt token" && exit 1
+
+workflows:
+  version: 2
+  default_workflow:
+    jobs:
+      - setup
+      - lint:
+          requires:
+            - setup
+      - test:
+          requires:
+            - setup
+      - pre-publish:
+          requires:
+            - lint
+            - test
+      - publish-module:
+          requires:
+            - pre-publish
+
   
