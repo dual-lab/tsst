@@ -85,5 +85,8 @@ workflows:
       - publish-module:
           requires:
             - pre-publish
+          filters:
+            branches:
+              only: master
 
   
