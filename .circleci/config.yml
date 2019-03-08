@@ -12,7 +12,7 @@ executors:
 
 commands:
   restore-node-dep:
-    description: "Restore node dependencies from cache",
+    description: "Restore node dependencies from cache"
     steps:
       - restore_cache: 
           key: *cache_key
