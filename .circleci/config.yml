@@ -65,6 +65,10 @@ jobs:
     steps:
       - attach-workspace
       - run: yarn run pre-publish
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - ./tsst/dist
   
   publish-module:
     executor: node-yarn
