@@ -42,6 +42,11 @@ jobs:
           key: *cache_key
           paths:
             - ~/.cache/yarn
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - ./tsst
+
 
   lint:
     executor: node-yarn
