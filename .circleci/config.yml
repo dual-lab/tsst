@@ -1,7 +1,7 @@
 version: 2.1
 description: Node js building testing and publishing module
 
-var_1: &docker_image circlecli/node:11.10.1
+var_1: &docker_image circleci/node:11.10.1
 var_2: &cache_key cc-v1-node-11101-{{ checksum "yarn.lock" }}
 
 executors:
