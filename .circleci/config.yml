@@ -39,9 +39,9 @@ jobs:
       - yarn-install
       - save_cache:
           name: "Save Yarn Package Cache"
-            key: *cache_key
-            paths:
-              - ~/.cache/yarn
+          key: *cache_key
+          paths:
+            - ~/.cache/yarn
 
   lint:
     executor: node-yarn
