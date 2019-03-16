@@ -20,7 +20,7 @@ readonly DIST="${PWD}/dist"
 # 2. upload to github using v3 api
 function publish_rel() {
     printf "Start publish release flow \n"
-    pack_npm_module
+    #pack_npm_module
     publish_tag
     printf "Ended publish release flow\n"
 }
