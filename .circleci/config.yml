@@ -74,7 +74,7 @@ jobs:
     executor: node-yarn
     steps:
       - attach-workspace
-      - run: echo "TODO:(dmike16) create account and get encrypt token" && exit 1
+      - run: ./scripts/circleci/publish-artifact.sh
 
 workflows:
   version: 2

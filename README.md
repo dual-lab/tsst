@@ -1,6 +1,8 @@
-[![CircleCI](https://circleci.com/gh/dual-lab/tsst.svg?style=shield)](https://circleci.com/gh/dual-lab/tsst)
-
 # Simple Typescript Transpiler
+
+Circle CI |
+:---: |
+[![CircleCI](https://circleci.com/gh/dual-lab/tsst.svg?style=svg)](https://circleci.com/gh/dual-lab/tsst)|
 
 For info about see [Typescript API](https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API)
 
