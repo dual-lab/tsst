@@ -27,7 +27,7 @@ commands:
     description: "Install dependencies from yarn.lock"
     steps:
       - run: 
-          name: "Yarn install"
+          name: "Yarn Install"
           command: yarn install --frozen-lockfile --non-interactive
   
 jobs:
