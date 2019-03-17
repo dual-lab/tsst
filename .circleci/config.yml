@@ -74,7 +74,7 @@ jobs:
     executor: node-yarn
     steps:
       - attach-workspace
-      - run: ./scripts/circleci/publish-artifact.sh
+      - run: ls -al && ./scripts/circleci/publish-artifact.sh
 
 workflows:
   version: 2
