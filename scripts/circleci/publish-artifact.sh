@@ -20,7 +20,7 @@ readonly DIST="${PWD}/dist"
 # 2. upload to github using v3 api
 function publish_rel() {
     printf "Start publish release flow \n"
-    #pack_npm_module
+    pack_npm_module
     publish_tag
     printf "Ended publish release flow\n"
 }
@@ -38,7 +38,7 @@ function pack_npm_module() {
 
 function publish_tag(){
     printf "Start publish tag flow\n"
-    node ${PWD}/scripts/release/publish-rel.js
+    node ${PWD}/scripts/release/publish-rel.js ${DIST_RELEASE}
     printf "Start publish tag flow\n"
 }
 
