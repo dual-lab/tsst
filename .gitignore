@@ -66,3 +66,6 @@ tslint-out.txt
 
 # vscode settings
 .vscode/
+
+# asset packed file
+dist-to-rel/
