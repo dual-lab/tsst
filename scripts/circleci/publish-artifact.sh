@@ -1,4 +1,4 @@
-#!/bin/env/bash
+#!/usr/bin/env bash
 #
 # Publish script used inside a circleci workflow.
 # Steps:
