@@ -13,6 +13,7 @@ const fs = require('fs');
 const path = require('path');
 
 const { version, name, description } = require('../../package.json');
+const { extractDescFromChangelog } = require("../../tools/extract-changelog")
 
 const tagName = `v${version}`;
 const isPreRel = /^.+-(?:alpha|beta)$/.test(version);
@@ -141,6 +142,8 @@ function uploadRelAsset(uploadTourl) {
 
     try {
         await checkIfTheRelAlreadyExists();
+        const changelogExtract = await extractDescFromChangelog('./CHANGELOG.md', tagName);
+        relBody.body = `${changelogExtract} \n _${description}_.`;
         out.write('Tag not exist...crating one\n');
         const uploadUrl = await creatingTagAndRel();
         out.write(`Upload asset  ${path.join(distToRel, distAssetName)}\n to ${uploadUrl}.\n`);

@@ -1,6 +1,6 @@
 {
     "name": "@dual-lab/tsst",
-    "version": "1.0.0-beta",
+    "version": "1.0.0",
     "description": "A minimal ts transplier, that use the experimantal typescript API.",
     "dependencies": {
         "injection-js": "^2.2.1",
