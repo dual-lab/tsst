@@ -11,14 +11,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [v1.0.0]
+
 ### Add
 
-- Add merge type to commit validator hook
-- Create version class implementation
-- Create build + testing configuration
-- Create typescript config json files
-- Create the project structure
-- Create the principal branch (experimental + testing)
-- Crate iusses and pull request template
-- Create the _README_ and _package.json_
-- Create initial repo
+- add circleci config yml file
+- create release script
+- create aot api
+- create jit api
+- add merge type to commit validator hook
+- create version class implementation
+- create build + testing configuration
+- create typescript config json files
+- create the project structure
+- create the principal branch (experimental + testing)
+- crate iusses and pull request template
+- create the _README_ and _package.json_
+- create initial repo
