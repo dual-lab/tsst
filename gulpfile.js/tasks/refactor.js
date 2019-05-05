@@ -6,7 +6,7 @@ const { addPackageJsonFile } = require("../move-packagejson");
 
 function moveEs5Module(gulp) {
     const fn = () => gulp.src(join(env.buildDir, 'src', '**', '*.js'), { sourcemaps: true })
-        .pipe(gulp.dest(join(env.buildDir, 'es5'), { sourcemaps: '.' }));
+        .pipe(gulp.dest(join(env.buildDir, 'cjs'), { sourcemaps: '.' }));
     fn.displayName = 'moveEs5Module';
     return fn;
 }

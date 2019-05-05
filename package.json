@@ -8,7 +8,7 @@
     },
     "author": "dmike16 <cipmiky@gmail.com>",
     "license": "MIT",
-    "main": "./es5/tsst.js",
+    "main": "./cjs/tsst.js",
     "types": "./tsst.d.ts",
     "repository": {
         "type": "git",
