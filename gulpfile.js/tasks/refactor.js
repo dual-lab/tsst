@@ -5,7 +5,7 @@ const env = require("../../tools/enviroment");
 const { addPackageJsonFile } = require("../move-packagejson");
 
 function moveEs5Module(gulp) {
-    const fn = () => gulp.src(join(env.buildDir, 'src', '*.js'), { sourcemaps: true })
+    const fn = () => gulp.src(join(env.buildDir, 'src', '**', '*.js'), { sourcemaps: true })
         .pipe(gulp.dest(join(env.buildDir, 'es5'), { sourcemaps: '.' }));
     fn.displayName = 'moveEs5Module';
     return fn;
@@ -20,7 +20,7 @@ function renameDeclarationFile(gulp) {
 }
 
 function cleanUnusefulFile() {
-    const fn = () => del([join(env.buildDir, 'public_api.js'), join(env.buildDir, 'src', '*.js')]);
+    const fn = () => del([join(env.buildDir, 'public_api.js'), join(env.buildDir, 'src', '**', '*.js')]);
     fn.displayName = 'cleanUnusefulFile';
     return fn;
 }
