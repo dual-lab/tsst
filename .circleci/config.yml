@@ -74,7 +74,12 @@ jobs:
     executor: node-yarn
     steps:
       - attach-workspace
-      - run: ./scripts/circleci/publish-artifact.sh
+      - run:
+          name: 'Descrypt github token'
+          command: echo 'export GITHUB_TOKEN=$(openssl aes-256-cbc -d -in .circleci/github_token -k ${KEY} -iv ${IV_NONCE})' >> $BASH_ENV
+      - run: 
+          name: 'Publish artifact'
+          command: ./scripts/circleci/publish-artifact.sh
 
 workflows:
   version: 2
