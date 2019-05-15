@@ -10,8 +10,6 @@
 
 set -x -u -e -o pipefail
 
-source "scripts/circleci/decrypt-token.sh"
-
 readonly DIST_RELEASE="${PWD}/dist-to-rel"
 readonly DIST="${PWD}/dist"
 
