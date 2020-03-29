@@ -20,6 +20,7 @@ function publish_rel() {
     printf "Start publish release flow \n"
     pack_npm_module
     publish_tag
+    publish_npm
     printf "Ended publish release flow\n"
 }
 
