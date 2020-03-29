@@ -8,7 +8,7 @@ export class TranspilerFlow {
         return flow;
     }
 
-    private stpes: Array<TranspilerStep<any>> = [];
+    private stpes: TranspilerStep<any>[] = [];
     private count: number = 0;
 
     add<T>(step: TranspilerStep<T>): void {
