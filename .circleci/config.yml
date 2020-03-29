@@ -78,9 +78,6 @@ jobs:
           name: 'Descrypt github token'
           command: echo 'export GITHUB_TOKEN=$(openssl aes-256-cbc -d -in .circleci/github_token -k ${KEY} -iv ${IV_NONCE})' >> $BASH_ENV
       - run:
-          name: 'Descrypt npm token'
-          command: echo 'export NPM_TOKEN=$(openssl aes-256-cbc -d -in .circleci/npm_token -k ${KEY} -iv ${IV_NONCE})' >> $BASH_ENV
-      - run:
           name: 'Configure npmrc'
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/tsst/.npmrc
       - run: 
