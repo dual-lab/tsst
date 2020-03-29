@@ -45,7 +45,7 @@ function publish_tag(){
 function publish_npm(){
     printf "Start publish to npm \n"
     tarball=$(basename $DIST_RELEASE/*.tgz)
-    npm publish tarball $DIST_RELEASE/$tarball --access public --tag latest
+    npm publish $DIST_RELEASE/$tarball --access public --tag latest
     printf "Ended publish to npm \n"
 }
 
