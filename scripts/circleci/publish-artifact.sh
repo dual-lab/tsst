@@ -37,7 +37,15 @@ function pack_npm_module() {
 function publish_tag(){
     printf "Start publish tag flow\n"
     node ${PWD}/scripts/release/publish-rel.js ${DIST_RELEASE}
-    printf "Start publish tag flow\n"
+    printf "Ended publish tag flow\n"
+}
+
+
+function publish_npm(){
+    printf "Start publish to npm \n"
+    tarball=$(basename $DIST_RELEASE/*.tgz)
+    npm publish tarball $DIST_RELEASE/$tarball --access public --tag latest
+    printf "Ended publish to npm \n"
 }
 
 publish_rel
